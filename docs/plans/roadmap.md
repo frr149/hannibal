@@ -62,6 +62,9 @@ correct hannibal JSON.
 - **Golden fixture:** the converted PRD, after fixing its errors; `check --strict` passes.
 - **Regression fixture:** the same PRD at its first committed version, which contains the ORD-3 error (milestone M1
   includes a command in T11, which depends on T10 of milestone M2).
+- **Fix series (real experience):** a manual review of that PRD produced 24 atomic commits, one per error,
+  each with a `hannibal-rule: <id>` trailer naming the rule it violated (or `judgment` when only a model could
+  catch it). Each commit is a before/after fixture; the exact location is in the maintainer's private notes.
 - **Derived fixtures:** one per rule in `audit-rules.md`, each the golden fixture with exactly one
   violation and the expected finding. A rule without a failing fixture is not tested.
 
