@@ -16,7 +16,29 @@
 
 ## Stage 2 — Commands used while implementing a PRD
 
-To be discussed. Execution state, stage gates, review runs, export to Linear.
+Requirements stated by Fernando on 2026-10-26. Commands still to be designed.
+
+**Goal:** never stop for no reason; advance as far as possible autonomously; group human work.
+
+1. **Autonomy first.** The agent advances as far as it can without the human.
+2. **New work is inserted in order.** A problem that implies new work becomes a new task, placed by
+   its dependencies (the ORD rules apply as in stage 1).
+3. **Decide, record, ask later.** When something needs the human, the agent uses its best judgment,
+   implements it, and creates a human task explaining the problem, the solution implemented and
+   why. Every such task feeds a **deploy gate**: no deploy until a human has validated it.
+4. **Runaway detection.** A ratio between implemented work and newly added tasks. If new tasks pile
+   up faster than tasks close, something is wrong: stop and call the human.
+5. **Provisional or partial acceptance.** A task that cannot be closed because of something found
+   along the way can be accepted provisionally or partially, which always creates a human task to
+   break the tie (and therefore also holds the deploy gate).
+6. **Write first, then continue.** New information goes into the PRD (through hannibal) before
+   anything else, so a context compaction never loses it. How to manage compaction across the
+   whole process is still open.
+7. **Accompanying skills**, e.g. one that creates a goal per task.
+
+**Out of the first version:** no parallel work, no switching between models.
+
+Also to be discussed: execution state, stage gates, review runs, export to Linear.
 
 ## Dogfooding
 
